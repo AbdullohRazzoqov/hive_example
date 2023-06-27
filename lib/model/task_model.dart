@@ -1,3 +1,4 @@
+import 'package:hive_example/model/catigory_model.dart';
 import 'package:hive_flutter/adapters.dart';
 part 'task_model.g.dart';
 
@@ -11,10 +12,12 @@ class Task extends HiveObject {
 
   @HiveField(2)
   bool favorite;
-
+  @HiveField(3)
+  Category catigory;
   Task({
     required this.taskName,
     required this.dateTime,
     this.favorite = false,
+    required this.catigory,
   });
 }

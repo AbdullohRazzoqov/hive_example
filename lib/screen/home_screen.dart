@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_example/model/catigory_model.dart';
 import 'package:hive_example/model/task_model.dart';
 import 'package:hive_example/services/hive_service.dart';
 
@@ -47,7 +48,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   child: Card(
                     child: ListTile(
                       title: Text(task[index]!.taskName),
-                      subtitle: Text('${task[index]!.dateTime} vaqt'),
+                      subtitle: Text('${task[index]!.dateTime} vaqt'),trailing: Text("${task[index]!.catigory.catigroyStatus}"),
                     ),
                   ),
                 );
@@ -106,7 +107,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                             dateTime != null) {
                           hiveService.addTask(Task(
                               taskName: taskController.text,
-                              dateTime: dateTime!));
+                              dateTime: dateTime!, catigory: Category(catigoryName: 'Ish', catigroyStatus: true)));
                           setState(() {});
                           Navigator.pop(context);
                         } else {

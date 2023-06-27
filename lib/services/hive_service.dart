@@ -1,3 +1,4 @@
+import 'package:hive_example/model/catigory_model.dart';
 import 'package:hive_example/model/task_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -9,6 +10,8 @@ class HiveService {
     await Hive.initFlutter();
     Hive.registerAdapter<Task>(
         TaskAdapter()); 
+        Hive.registerAdapter<Category>(CategoryAdapter()); 
+
     final box = await Hive.openBox<Task>('taskBox');
     return HiveService._create(box);
   }
