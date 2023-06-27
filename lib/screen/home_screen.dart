@@ -48,7 +48,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   child: Card(
                     child: ListTile(
                       title: Text(task[index]!.taskName),
-                      subtitle: Text('${task[index]!.dateTime} vaqt'),trailing: Text("${task[index]!.catigory.catigroyStatus}"),
+                      subtitle: Text('${task[index]!.dateTime} vaqt'),trailing: Text("${task[index]!.count}"),
                     ),
                   ),
                 );
@@ -107,7 +107,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                             dateTime != null) {
                           hiveService.addTask(Task(
                               taskName: taskController.text,
-                              dateTime: dateTime!, catigory: Category(catigoryName: 'Ish', catigroyStatus: true)));
+                              dateTime: dateTime!, catigory: Category(catigoryName: 'Ish', catigroyStatus: true), count: [1,2,3]));
                           setState(() {});
                           Navigator.pop(context);
                         } else {
